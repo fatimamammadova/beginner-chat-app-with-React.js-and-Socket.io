@@ -8,10 +8,11 @@ export default function Login() {
   const navigate = useNavigate();
 
   const handleLogin = () => {
+    if (!user) return;
     localStorage.setItem("user", user);
     localStorage.setItem(
       "image",
-      `https://picsum.photos/id/${_.random()}/200/300`
+      `https://picsum.photos/id/${_.random(1, 1000)}/200/300`
     );
     navigate("/chat");
   };
